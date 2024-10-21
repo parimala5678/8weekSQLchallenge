@@ -104,6 +104,7 @@ from diner_info
 where rank_num =1;
 ```
 #### Output:
+![image](https://github.com/user-attachments/assets/c1083ae1-26dd-4b42-b2dc-b93d2a0ec880)
 
 
 ## Q7: Which item was purchased just before the customer became a member?
@@ -122,6 +123,8 @@ from diner_info
 where rank_num =1;
 ```
 #### Output:
+![image](https://github.com/user-attachments/assets/a303697a-0bd2-4deb-b525-4867bd732ff8)
+
 
 ## Q8: What is the total items and amount spent for each member before they became a member?
 #### SQL Code:
@@ -135,6 +138,8 @@ group by s.customer_id
 order by customer_id;
 ```
 #### Output:
+![image](https://github.com/user-attachments/assets/3e473936-79eb-4c4c-a7d5-d89c0e2363af)
+
 
 ## Q9: If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 #### SQL Code:
@@ -147,6 +152,8 @@ GROUP BY customer_id
 ORDER BY customer_id;
 ```
 #### Output:
+![image](https://github.com/user-attachments/assets/baec6d9a-7afe-445f-af90-0ff600771214)
+
 
 ## Bonus:
 ## Join all the things
@@ -159,6 +166,8 @@ left join menu m on s.product_id = m.product_id
 left join members mem on s.customer_id = mem.customer_id;
 ```
 #### Output:
+![image](https://github.com/user-attachments/assets/9544c436-4fc3-447d-b00a-f394cbd6bf4e)
+
 
 ## Rank all the things
 We are creating a table where Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
@@ -174,3 +183,5 @@ select *, if(member='N',NULL,dense_rank() over(partition by s.customer_id,member
 from data_table;
 ```
 #### Output:
+![image](https://github.com/user-attachments/assets/e9b007c0-8171-48f6-abbb-55dcb63fce6d)
+
